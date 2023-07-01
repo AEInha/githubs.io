@@ -4,7 +4,7 @@ layout: post
 
 comments: true
 
-title: 선형대수학 Day1, 벡터의 명확한 정의
+title: 선형대수학 Day1, 벡터의 정의와 벡터공간
 
 categories: [선형대수학]
 
