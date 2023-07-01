@@ -12,6 +12,7 @@ plugins:
   - sprockets
   - autoprefixer-rails
   - jemoji
+  - jekyll-mathjax
 
 ############################################################
 # Site configuration for the Jekyll 3 Pagination Gem
