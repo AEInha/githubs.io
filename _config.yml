@@ -13,6 +13,13 @@ plugins:
   - autoprefixer-rails
   - jemoji
   - jekyll-mathjax
+  - jekyll-mathjax
+  - jekyll-mathjax
+  - jekyll-mathjax
+  - jekyll-mathjax
+  - jekyll-mathjax
+  - jekyll-mathjax
+  
 
 ############################################################
 # Site configuration for the Jekyll 3 Pagination Gem
