@@ -57,7 +57,7 @@ categories: [선형대수학]
 
 다만 조금 더 명확하게는 **항등원과 역원**이 존재하는 연산으로 생각할 수 있다.
 
-
+$$\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$$
 항등원은 a+0 = a임은 직관적으로 알 수 있다.
 
 역원은 a+(-a) = 0임또한 직관적으로 알 수 있다.
