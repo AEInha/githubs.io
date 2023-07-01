@@ -65,13 +65,13 @@ categories: [선형대수학]
 엄밀하게 설명하자면
 
 1. 결합 법칙을 만족
-\forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \quad (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})
+$\forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \quad (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$
 2. 교환 법칙을 만족
-\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}
+$\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
 3. 항등원의 존재
-\exists \mathbf{0} \in V \text{ such that } \forall \mathbf{v} \in V, \quad \mathbf{v} + \mathbf{0} = \mathbf{v}
+$\exists \mathbf{0} \in V \text{ such that } \forall \mathbf{v} \in V, \quad \mathbf{v} + \mathbf{0} = \mathbf{v}$
 4. 역원의 존재
-\forall \mathbf{v} \in V, \quad \exists \mathbf{-v} \text{ such that } \mathbf{v} + \mathbf{-v} = \mathbf{0}
+$\forall \mathbf{v} \in V, \quad \exists \mathbf{-v} \text{ such that } \mathbf{v} + \mathbf{-v} = \mathbf{0}$
 
 <br>
 
