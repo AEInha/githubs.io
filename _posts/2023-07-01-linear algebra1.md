@@ -65,7 +65,7 @@ $$\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{
 엄밀하게 설명하자면
 
 1. 결합 법칙을 만족
-<br>$$\forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \quad (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$$<br>
+<br>$$ \forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \quad (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w}) $$<br>
 벡터 공간 안에 있는 u,v,w에 대하여 위와같은 **결합법칙**이 만족됨
 <br>
 
@@ -76,7 +76,7 @@ $$\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{
 <br>
 
 3. 항등원의 존재
-<br>$$\exists \mathbf{0} \in V \text{ such that } \forall \mathbf{v} \in V, \quad \mathbf{v} + \mathbf{0} = \mathbf{v}$$<br>
+<br>$$ \exists \mathbf{0} \in V \text{ such that } \forall \mathbf{v} \in V, \quad \mathbf{v} + \mathbf{0} = \mathbf{v}$$<br>
 벡터 공간에 있는 v에 대해서 0이라는 **항등원**이 존재한다
 <br>
 4. 역원의 존재
@@ -92,6 +92,6 @@ $$\forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{
 
 <br>
 <br>
-##스칼라곱
+## 스칼라곱
 
 스칼라곱은 항등원과 
