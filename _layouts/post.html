@@ -17,6 +17,10 @@ layout: description
       <a href="{{site.baseurl}}/categories/#{{category|slugize}}">{{category}}</a>
   {% unless forloop.last %}&nbsp;{% endunless %}
   {% endfor %}
+  {% if page.use_math %}
+  {% include mathjax_support.html %}
+{% endif %}
+
 </div>
 <div>{% include share_buttons.html %}</div>
 
