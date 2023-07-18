@@ -10,7 +10,8 @@ categories: [알고리즘]
 
 ---
 
-#문제
+# 문제
+
 ---
 0부터 N까지의 정수 K개를 더해서 그 합이 N이 되는 경우의 수를 구하는 프로그램을 작성하시오.
 
@@ -25,7 +26,8 @@ categories: [알고리즘]
 
 <br>
 <br>
-##출력
+
+## 출력
 <br>
 첫째 줄에 답을 1000000000으로 나눈 나머지를 출력한다.
 
@@ -37,7 +39,7 @@ categories: [알고리즘]
 <details>
 <summary>연습 문제의 정답, 눌러서 확인</summary>
 
-```python
+~~~python
 n,k = map(int,input().split())
 dp = [1 for i in range(n)]
 
@@ -52,7 +54,7 @@ else:
         dp[i] = (dp[i-1]+dp[i])%1000000000
   print(dp[n-1]%1000000000)
 
-```
+~~~
 
 
 ---

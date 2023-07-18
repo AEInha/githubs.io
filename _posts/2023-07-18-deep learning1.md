@@ -4,319 +4,169 @@ layout: post
 
 comments: true
 
-title: 선형대수학 Day1, 벡터의 정의와 벡터공간
+title: 딥러닝 Day1
 
-categories: [선형대수학]
-
----
-
- 
-<br>
-
-
-# 벡터와 벡터 공간
-<br>
-<br>
-## 벡터란 무엇인가?
-
-<br>
-<br> 
-  많은 사람들한테 벡터를 물어보면 벡터를 크기와 방향을 가진 물리량이라고 이야기한다.
-  <br>
-  <br>
-  하지만 이는 반은 맞고 반은 틀린 이야기이다.
-  <br>
-  <br>
-  벡터의 크기와 방향은 벡터가 가진 기하적인 성질이지, 벡터의 본질적인 표현이 아니다.
-<br>
-<br>
-
-## 벡터는 벡터공간(Vector Space)의 원소이다
-
-<br>
+categories: [딥러닝]
 
 ---
 
-### 벡터공간은 다음과 같은 4가지 연산을 모두 할수있는 원소들의 집합을 벡터공간이라 한다
-<br>
-
-
-1. 덧셈법칙이 정의되어야 한다
-2. 스칼라배가 정의되어야 한다
-3. Transpose가 정의되어야 한다
-4. 내적이 정의되어야 한다
-<br>
-
-이제 4가지 연산에 대해서 차근차근 알아보자.
-<br>
-<br>
+#로지스틱 회귀와 경사하강법
 
 ---
 
-## 덧셈법칙
+###최적화
 <br>
-덧셈법칙은 우리가 일반적으로 생각하는 a+b=c이다.
 
+최적화는 함수를 minimizing(최소화) 또는 maximizing(최대화)하는 것이다. 
 
+물론 단순하게 minimization(최소화)으로 해석해도 좋다. 
 
-다만 조금 더 명확하게는 **항등원과 역원**이 존재하는 연산으로 생각할 수 있다.
+왜냐하면 함수 f(x)의 최솟값(global minimum)을 찾는 것은 -f(x)의 최대값을 찾는 것으로 해석할 수 있기 때문이다.
 
-항등원은 a+0 = a임은 직관적으로 알 수 있다.
+공학에서의 최적화에 사용되는 함수는 목적함수(objective function)라 한다.
 
-역원은 a+(-a) = 0임또한 직관적으로 알 수 있다.
+그리고 최적화를 할 때, 만족해야 하는 어떤 조건이 있을 것이다. 
 
-엄밀하게 설명하자면
-
-1. 결합 법칙을 만족
-<br><br>$$ \forall \mathbf{u}, \mathbf{v}, \mathbf{w} \in V, \quad (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w}) $$<br><br>
-벡터 공간 안에 있는 u,v,w에 대하여 위와같은 **결합법칙**이 만족됨
-<br><br>
-
-
-2. 교환 법칙을 만족
-<br><br>$$ \forall \mathbf{u}, \mathbf{v} \in V, \quad \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u} $$<br><br>
-벡터 공간 안에 있는 u,v에 대하여 위와같은 **교환법칙**이 만족된다
-<br><br>
-
-3. 항등원의 존재
-<br><br>$$ \exists \mathbf{0} \in V \text{ such that } \forall \mathbf{v} \in V, \quad \mathbf{v} + \mathbf{0} = \mathbf{v} $$<br><br>
-벡터 공간에 있는 v에 대해서 0이라는 **항등원**이 존재한다
-<br><br>
-4. 역원의 존재
-<br><br>$$ \forall \mathbf{v} \in V, \quad \exists \mathbf{-v} \text{ such that } \mathbf{v} + \mathbf{-v} = \mathbf{0}    $$<br><br>
-벡터 공간에 있는 v에 대해서 -v이라는 **역원**이 존재한다
-
-<br><br>
-
-
-즉 벡터공간에서 만족하는 덧셈연산은 항등원과 역원이 존재하고 결합법칙과 분배법칙, 그리고 교환 법칙을 만족한다.
+이를 제약조건(constraints)라 한다.
 
 ---
-
-<br>
-<br>
-## 스칼라배(scalar multiple)
-
-스칼라배는 벡터와 스칼라에 대한 연산이다.
-
-벡터의 방향을 보존하면서 벡터의 길이를 스칼라의 절대값만큼 늘리거나, 줄인다고 생각할 수 있다. 
-
-
-이것또한 교환 법칙, 결합 법칙을 만족한다.
-
-1. 교환 법칙
-$$  c \cdot (a \cdot \mathbf{v}) = (c \cdot a) \cdot \mathbf{v} $$
-<br>
-<br>
-c와 a는 스칼라이고 v는 벡터이고 다음과 같이 교환법칙이 성립한다는 것을 알 수 있다
-<br>
+###경사하강법
 <br>
 
-2. 결합 법칙
-$$  (c_1 \cdot c_2) \cdot \mathbf{v} = c_1 \cdot (c_2 \cdot \mathbf{v}) $$<br><br>
-스칼라배도 결합법칙이 만족되는 연산임을 알 수 있다.
+최적화 문제를 풀 때, **경사하강법**이라는 알고리즘을 사용할 수 있다.
 
-<br>
-<br>
+경사하강법이란 말 그대로 함수의 경사(그래디언트)에 따라 하강하는 것이다.
 
+수식으로 표현하면 뉴턴 랩슨 방법과 유사하다는 것을 알 수 있다.(뉴턴랩슨 방법은 헤시안을 사용하지만 경사하강법은 그래디언트를 사용한다)
 
-스칼라배에서 조심해야 할 것은 **스칼라배(scalar multiple)은 스칼라곱(scalar product)이 아니다** 라는 점이다.
-
+$$ w = w - \eta \nabla J(w) $$
+1. $w$는 현재의 위치이다.
+2. $ \eta$는 학습률이다. 학습률이란 얼마나 갈지를 결정하는 변수이다. 이 변수는 사용자가 임의로 설정할 수 있다.
+3. $ \nabla J(w)$ 는 목적함수의 경사(그래디언트)이다. 
 
 <br>
 
----
-## 전치(Transpose)
+경사하강법을 사용할 때, 목적함수가 convex function(볼록한 함수)라면 무조건 local minimum(지역 최저점) = global minimum(전역 최저점)이 보장된다.
 
-전치는 벡터를 돌린 것이라고 생각할 수 있다.
+만약 목적함수가 convex function이 아니라면 local minimum = global minimum임이 보장되지 않는다.
 
+그래서 목적함수를 convex function이 아니라면 **convex function으로 함수를 변화**시켜 문제를 풀거나 **경사하강법을 응용한 다른 방법**을 사용하여 global minimum을 찾는다.
 
-$$
-\begin{pmatrix}
-a_1 \\
-a_2 \\
-a_3
-\end{pmatrix}^\intercal
-= [a_1 \quad a_2 \quad a_3]
-$$
-
----
-## 내적(Dot product)
-
-
-내적을 정의하자면
-
-$$ 
-\mathbf{a} = \begin{bmatrix} a_1 \\ a_2 \\ \vdots \\ a_n \end{bmatrix}, \quad
-\mathbf{b} = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}
-$$
-
-라는 벡터 a,b가 있다고 하자.
-
-이 a,b의 내적은 다음과 같이 정의된다. 
-
-$$
-\mathbf{a} \cdot \mathbf{b} = a_1 b_1 + a_2 b_2 + \ldots + a_n b_n
-$$
-
-<br>
-
->여기에서 우리는 내적에 대한 중요한 사실 2가지를 알 수 있다. <br><br>첫번째로 내적은 **차원이 같은 두 벡터간의 연산**이다.<br>
-차원이 다르다면 내적을 할 수 없는 것이다.<br>
-두번째로 **내적은 벡터와 벡터의 연산으로 스칼라를 출력**하는 연산이다
-
-<br>
-<br>
-
-벡터의 내적도 **교환법칙과 결합법칙**이 성립한다.
-
-1. 교환법칙
-$$
-\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^{n} a_i b_i = \sum_{i=1}^{n} b_i a_i = \mathbf{b} \cdot \mathbf{a}
-$$
-<br>
-차원이 같은 두 벡터 a,b에 대해서 교환법칙이 만족함을 알 수 있다.
-<br>
-<br>
-2. 결합법칙
-$$
-(\mathbf{a} \cdot \mathbf{b}) \cdot \mathbf{c} = \left(\sum_{i=1}^{n} a_i b_i\right) \cdot \mathbf{c} = \sum_{i=1}^{n} (a_i b_i) c_i = \mathbf{a} \cdot (\mathbf{b} \cdot \mathbf{c})
-$$
-<br>
-차원이 같은 두 벡터 a,b에 대해서 결합법칙이 만족함을 알 수 있다.
-<br>
-<br>
-
-또한 벡터의 내적의 다른 표현은 다음과 같이 정의된다.<br><br>
-$$
-\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^T \mathbf{b} = \begin{bmatrix} a_1 & a_2 & \ldots & a_n \end{bmatrix} \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}
-$$
-<br><br>
-즉 우리는 Transpose(전치)를 정의함으로써 벡터의 내적에 다른 표현이 있다는 것을 알 수 있다. 
-
-벡터의 내적을 편하게 하려면 ㄱ을 생각하면 된다. 벡터의 내적은 항상 **ㄱ자 연산**이다.
 
 
 ---
+###경사하강법의 종류
+
+안타깝게도 많은 최적화 문제의 목적함수는 볼록함수가 아니다. 
+
+따라서 최적화 문제를 풀 때, 어떠한 minimum에 도달했어도 그것이 global minimum이라는 보장을 할 수 없다.
+
+그래서 과학자들과 개발자들은 global minimum에 도달할 수 있는 다양한 경사하강법 알고리즘을 만들었다. 
+
+그중 8가지가 대표적이다.
 <br>
-
-## Norm(노름)
-
-노름은 벡터의 크기를 측정하는 방법이다. <br><br>노름에는 여러가지 종류가 있지만 우리가 알아야 할 노름은 Euclidean Norm(L2 Norm)이다
-
-L2 Norm은 한마디로 점과 점사이의 거리공식을 확장시킨 것이라 생각하면 된다. 
-
-n차원의 벡터 a에 대해서 L2 Norm은 다음과 같이 정의된다.
-
-$$ \| \mathbf{a} \|_2 = \sqrt{\sum_{i=1}^{n} a_i^2} $$
-
-이는 내적으로 다시 정의하면
-$$
-\| \mathbf{a} \|_2 = \sqrt{\mathbf{a} \cdot \mathbf{a}}
-$$
-<br>
-<br>
-또한 내적을 Transpose로 정의할 수 있으므로 다음과 같이 표현할 수 있다.
-<br>
-<br>
-$$
-\mathbf{a} \cdot \mathbf{b} = \mathbf{a}^T \mathbf{b}
-$$
-<br>
-<br>
-
----
+1. **Batch gradient descent**: 순정상태의 경사하강법이다. 수식은 다음과 같다
+ $$ w = w - \eta \nabla J(w) $$ 
+ 이 방법을 사용하려면 한번의 업데이트당 한번 함수의 기울기를 계산해야 한다.
+ 따라서 **상당히 비효율적인 알고리즘**이다. 
+ 공간 복잡도(프로그램이 메모리를 차지하는 정도)도 상당히 클 수 있고, 시간 복잡도(프로그램이 걸리는 시간)도 클 수 있어 실제 딥러닝과 같은 곳에 사용하기에는 부적합하다.
+ 또한 local optima에 빠질 경우, 빠져나오는 것이 매우 어렵다
+ <br>
 
 
+2. **Stochastic gradient descent**: 확률적 경사하강법이다. 전체 데이터 셋에서 **한번의 반복에 1개의 샘플**에 대해서만 경사(그래디언트)를 계산한다. 이 방식은 계산 효율성이 높고, noise가 있는 local minima를 건너뛰게 할 수 있다.
+이 방법의 단점으로는 계속 원래 가려고 했던 장소를 지나쳐 더 많이 가버릴 수 있어 global minimum으로 수렴하기 힘들어질 수 있다.  이러한 문제는 학습률을 천천히 감소시키면 해결된다고 보인다.<br><br>
 
-## 내적을 Norm으로써 다시 정의
 
-내적은 다음과 같이 Norm과 각 θ로 표현될 수 있다.
+3. **Mini-batch gradient descent**: 미니배치 경사하강법이라 한다. 미니 배치 경사하강법은 n개의 미니배치(n을 batch size라 한다)라 하는 작은 집합을 사용하여 병렬로 그래디언트를 계산한다.이 방법은 확률적 경사하강법보다 빠르게 연산된다. 또한 batch 경사하강법보다 덜 건너뛰는 경향이 있다.  batch size는 일반적으로 2**n으로 지정한다. 이 방식의 단점으로는 local minima가 아닌 안장점(saddle point)에서 탈출하기 힘들다는 단점이 있다. 또한 여전히 local minima에서 탈출하기 힘들다는 단점이 있다.<br><br>
 
-<br>
-<br>
 
-$$
-\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos(\theta)
-$$
-<br>
-<br>
+4. **momentum**: 모멘텀은 미니배치 경사하강법의 학습률을 변화시키는 것이다.  
 
-여기에서 알아야 할 것은 각 θ는 두 벡터 a,b가 이루는 각이다. 
+5. 
 
-즉 두 벡터 a,b가 수직한 관계에 있으면 cosθ=0이 되므로 내적이 항상 0이 됨을 알 수 있다.
+참조: An overview of gradient descent optimization algorithms(https://arxiv.org/pdf/1609.04747.pdf)
 
 
 ---
 
 
 
-## 연습 문제
+
+<br>
 
 
-### 1번
+###경사하강법을 코드로 구현
 
-벡터 a,b 에 대해서 a+b를 구하시오.
-
-
-
-### 2번
-
-다음조건을 만족하는 벡터 a,b 에 대해서 a를 b로 표현하시오.
-
-### 3번
-
-2가 scalar이고 a는 벡터라 한다면 2a는 a의 스칼라배라고 할 수 있다. 
-
-여기에서 a+a = 2a이므로 벡터의 덧셈법칙으로 스칼라배를 표현 할 수 있다는 것을 알 수 있다
-
-그러면 임의의 실수 C에 대해서 왜 스칼라배 Ca는 Ca = a+a+a+... 와 같이 덧셈법칙으로 표현 할 수 없는지 증명하시오.
-
-### 4번
-
-서로 수직임을 보이시오
+<br>
+사실 경사하강법은 
 
 
-### 5번
-
-word count 벡터는 다음과 같이 정의된다.
-예를 들어 I want to go to the moon 이라는 문장이있다고 하자. 
-그러면 I:1번 want: 1번, to: 2번, the:1번, moon: 1번으로 
-이 문장의 word count 벡터는 [1,2,2,1,1] 로 정의된다. 이때 
+---
 
 
-### 6번
+###분류문제란 무엇인가?
 
-세 점 A(a1,a2,a3), B(b1,b2,b3), C(c1,c2,c3)에 대해서 세 점과의 거리가 최소화되는 점 P(p1,p2,p3)를 a1,a2,a3,b1,b2,b3,c1,c2,c3로 표현하시오.
-
->Hint 거리는 유클리디언 Norm이다. 
+<br>
 
 
-<details>
-<summary>연습 문제의 정답, 눌러서 확인</summary>
+분류 문제란 **연속적이지 않은 변수**를 예측하는 것을 의미한다.
 
-## 연습 문제 정답
+예를 들어서 치와와 사진과 머핀 사진들이 있다고 하자.
 
 
-### 1번
-
-벡터 a,b 에 대해서 a+b를 구하시오.
+![img](https://i.postimg.cc/2SXNWP7f/muffin-meme2.jpg)
 
 
 
-### 2번
 
-다음 조건을 만족하는 벡터 a,b 에 대해서 a를 b로 표현하시오.
 
-### 3번
 
-2가 scalar이고 a는 벡터라 한다면 2a는 a의 스칼라배라고 할 수 있다. 
 
-여기에서 a+a = 2a이므로 벡터의 덧셈법칙으로 스칼라배를 표현 할 수 있다는 것을 알 수 있다
 
-그러면 임의의 실수 C에 대해서 왜 스칼라배 Ca는 Ca = a+a+a+... 로 표현 할 수 없는지 증명하시오.
 
-### 4번
 
-서로 수직임을 보이시오
-</details>
+
+이 사진들을 각각 치와와와 머핀으로 구분하는 것이 바로 분류 문제이다. 
+
+치와와와 머핀은 연속적인 변수가 아니다.
+
+이산적인 변수이다.
+
+위와 같은 분류 문제를 Least square과 같은 회귀 알고리즘으로 푸는 것은 좋은 선택이 아니다.
+
+이런 문제를 풀기 위해서는 다른 방법이 필요하다. 
+
+바로 로지스틱 회귀이다.
+
+
+---
+###로지스틱 회귀와 Sigmoid 함수
+
+<br>
+로지스틱 회귀란 회귀(regression)이란 말과 다르게 분류문제를 해결하는 분류 알고리즘 중 하나이다.
+
+
+방금전에 최적화 문제를 풀 때, 목적 함수가 볼록 함수(convex function)이 아니라면 목적함수를 볼록 함수로 바꾼다는 이야기를 했다. (경사하강법 부분에 나와있다)
+
+여기에서 위와 같은 개념이 사용된다.
+
+이러한 로지스틱 회귀는 딥러닝에서 활성화함수(activation function)으로써 사용된다. 
+
+---
+
+
+###로지스틱 회귀를 코드로 구현
+```python
+import pandas as pd 
+
+for i in range(n):
+
+```
+<br>
+파이썬을 사용하여 속도가 상당히 느릴 것으로 판단된다.
+
+
+
+
+
